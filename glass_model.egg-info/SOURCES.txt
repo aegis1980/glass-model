@@ -7,7 +7,6 @@ setup.cfg
 setup.py
 glass_model/__init__.py
 glass_model/errors.py
-glass_model/glass_model.py
 glass_model/gstr.py
 glass_model.egg-info/PKG-INFO
 glass_model.egg-info/SOURCES.txt

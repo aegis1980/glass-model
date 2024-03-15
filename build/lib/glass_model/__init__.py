@@ -74,11 +74,6 @@ class _BaseLayer(abc.ABC):
     def t_actual(self):
         return self._t_actual
 
-
-    @t_actual.setter
-    def t_actual(self,t):
-        self._t_actual = t
-
     @property
     def t_nom(self):
         return self._t_nom

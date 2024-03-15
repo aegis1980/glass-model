@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: glass-model
+Name: glass_model
 Version: 0.1.0
 Summary: OOP glass model and shortcode generator and parser
 Home-page: https://github.com/aegis1980/glass_model
@@ -7,7 +7,6 @@ Author: Jon Robinson
 Author-email: jonrobinson1980@gmail.com
 License: MIT license
 Keywords: glass_model
-Platform: UNKNOWN
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: MIT License
@@ -70,5 +69,3 @@ History
 ------------------
 
 * First release on PyPI.
-
-
