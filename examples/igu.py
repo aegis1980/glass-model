@@ -20,8 +20,12 @@ igu.width = 3000
 igu.height = 4000
 #igu.igdbcode = 20
 igu.igdbflip = False
-gs = igu.to_gstr()
+gs = igu.to_gstr(inc_meta=False)
 print (gs)
 
-igu2 = GlassBuildup.make_glass(gs)
-print(igu_outer.igdbcode)
+
+my_gs = "#20(6A)_12.0AIR_6A&0.76PVB&6A"
+my_gs = "#7211(6MONO)_12.0AIR_#103(6MONO)"
+
+igu2 = GlassBuildup.make_glass(my_gs)
+print (igu2.gases[0].gas_mix)
