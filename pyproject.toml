@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "glass-model"
+version = "0.1.0"
+description = "OOP model for glass"
+authors = ["Jon Robinson <jonrobinson1980@gmail.com>"]
+packages = [{include = "glass_model"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
