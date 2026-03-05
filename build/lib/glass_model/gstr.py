@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Modules settig out dash layout for general tab. 
-Defines glass geometry, buildup types and heat-treatments. 
+Modules settig out dash layout for general tab.
+Defines glass geometry, buildup types and heat-treatments.
 
 .. _Google Python Style Guide:
    http://google.github.io/styleguide/pyguide.html
@@ -47,14 +47,14 @@ def mysplit(s):
     head = s[:-len(tail)]
     if len(x) == 2:
         head = x[0] + '.' + head
-    
+
     return head, tail
 
 
 def find_enclosed_brackets(s):
     stack = []
     enclosed_pairs = []
-    
+
     for i, char in enumerate(s):
         if char == '(':
             stack.append(i)
@@ -67,10 +67,10 @@ def find_enclosed_brackets(s):
 
             else:
                 print("Error: Unmatched closing bracket at index", i)
-    
+
     if stack:
         print("Error: Unmatched opening brackets at indices", stack)
-    
+
     return enclosed_pairs
 
 
@@ -79,23 +79,23 @@ def find_number_after_marker(marker: str,string :str,after_last = False) -> Unio
 
     Args:
         marker (str): str to find
-        string (str): string to search 
+        string (str): string to search
         after_last (bool)
 
     Returns:
         Union[int,float]: number as float or int,
     """
-     
+
     pattern = r'' +marker + '([-+]?(?:\d*\.*\d+))'
-    
+
     match = re.findall(pattern, string)
     # If a match is found, return the number after 'x'
     if match:
-        
+
         x = float(match[-1 if after_last else 0])
         if x == int(x):
             return int(x)
-        return x 
+        return x
     else:
         return None
 
@@ -106,9 +106,12 @@ def find_first_number(input_string):
     match = re.search(pattern, input_string)
     if match:
         x = float(match.group())
-        if x == int(x):
+        if '.' in input_string:
+            return x
+        else:
             return int(x)
-        return x 
     else:
         return None
 
+if __name__ == "__main__":
+    print (find_first_number("6mono"))

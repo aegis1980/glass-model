@@ -74,6 +74,11 @@ class _BaseLayer(abc.ABC):
     def t_actual(self):
         return self._t_actual
 
+
+    @t_actual.setter
+    def t_actual(self,t):
+        self._t_actual = t
+
     @property
     def t_nom(self):
         return self._t_nom
@@ -97,10 +102,10 @@ class Support:
 
 class Interlayer(_BaseLayer):
     PVB = 'PVB'
-    SG = 'SG'
+    SGP = 'SGP'
     EVA = 'EVA'
 
-    MATERIALS = [PVB,SG,EVA]
+    MATERIALS = [PVB,SGP,EVA]
     THICKNESSES = [0.38, 0.76, 1.52]
 
 
@@ -110,8 +115,24 @@ class GasLayer(_BaseLayer):
     XENON = 'XE'
     KRYPTON = 'KR'
 
-    MATERIALS = [AIR,ARGON,XENON,KRYPTON]
+    GAS_MIXTURES = [AIR,ARGON,XENON,KRYPTON]
     THICKNESSES = [12, 13.2, 14] # corresponds to 15/32" 1/2", 9/16" spacers
+
+    gas_mix: str = None
+
+    def __init__(
+        self,
+        gas_mixture,
+        t: float,
+    ):
+        if gas_mixture not in GasLayer.GAS_MIXTURES:
+            raise errors.BuildupException( \
+                'Gas "{}" is not valid. Should be one of {}'.format(gas_mixture,GasLayer.GAS_MIXTURES))
+
+        super(GasLayer, self).__init__(gas_mixture, t)
+
+        self.gas_mix = self.descriptor
+
 
 # ******************************************************************************************************************
 
@@ -258,7 +279,6 @@ class MonoGlass(GlassBuildup):
 
         g_str = mono.parse_meta(g_str)
         g_str = mono.parse_igdbcode(g_str)
-        ic(g_str)
         _m= super(MonoGlass,cls).init_from_g_str(g_str)
 
 
