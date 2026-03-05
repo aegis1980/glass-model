@@ -6,7 +6,7 @@ authors = ["Jon Robinson <jonrobinson1980@gmail.com>"]
 packages = [{include = "glass_model"}]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "3.12"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
